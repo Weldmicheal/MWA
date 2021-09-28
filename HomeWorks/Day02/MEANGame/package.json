@@ -1,0 +1,19 @@
+{
+  "name": "meangame",
+  "version": "1.0.0",
+  "description": "This is MEAN Games Demo",
+  "main": "meangame.js",
+  "scripts": {
+    "start": "node meangame.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "MEAN",
+    "GAMES"
+  ],
+  "author": "Weldmicheal Berhanu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
