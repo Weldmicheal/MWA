@@ -1,0 +1,19 @@
+{
+  "name": "serverapp",
+  "version": "1.0.0",
+  "description": "This is a server that listens on 5353",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Express",
+    "Server"
+  ],
+  "author": "Weldmicheal Berahnu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
