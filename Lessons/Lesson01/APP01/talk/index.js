@@ -5,7 +5,7 @@ const hello = function(name){
 }
 
 const intro = function(){
-    console.log("I'am a node file called index.js")
+    console.log("I'am a node file called " + filename)
 }
 
 module.exports = {
