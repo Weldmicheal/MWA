@@ -1,0 +1,22 @@
+{
+  "name": "meanapp",
+  "version": "1.0.0",
+  "description": "This is MEAN Game Application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "MEAN",
+    "GAME"
+  ],
+  "author": "Weldmicheal Berhanu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "mocha": "^9.1.2"
+  }
+}

@@ -5,7 +5,7 @@ const app = express()
 app.set("port", 3000)
 
 
-app.use("/images", function(req, res, next){
+app.use(function(req, res, next){
     console.log(req.method, req.url)
     next()
 })
