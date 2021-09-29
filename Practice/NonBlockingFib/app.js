@@ -8,6 +8,6 @@ console.log("2")
 
 var startTime = Date.now()
 
-while((Date.now() - startTime) < 100){
+while((Date.now() - startTime) < 500){
     console.log("Waiting")
 }
