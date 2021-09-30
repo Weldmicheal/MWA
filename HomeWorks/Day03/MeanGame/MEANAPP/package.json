@@ -14,8 +14,7 @@
   "author": "Weldmicheal Berhanu",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "mongodb": "^4.1.2"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "mocha": "^9.1.2"

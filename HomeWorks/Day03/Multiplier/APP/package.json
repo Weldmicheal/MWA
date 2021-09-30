@@ -1,23 +1,19 @@
 {
-  "name": "meanapp",
+  "name": "multiplier",
   "version": "1.0.0",
-  "description": "This is MEAN Game Application",
+  "description": "This multiplies number from path parameter and queryString",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "MEAN",
-    "GAME"
+    "Parameter",
+    "QueryString"
   ],
   "author": "Weldmicheal Berhanu",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "mongodb": "^4.1.2"
-  },
-  "devDependencies": {
-    "mocha": "^9.1.2"
+    "express": "^4.17.1"
   }
 }
