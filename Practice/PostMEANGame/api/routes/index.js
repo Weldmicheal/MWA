@@ -6,6 +6,8 @@ const router = express.Router()
 
 router.route("/games")
     .get(games.gamesGetAll)
+
+router.route("/games/new")
     .post(games.gamesAddOne)
 
 
