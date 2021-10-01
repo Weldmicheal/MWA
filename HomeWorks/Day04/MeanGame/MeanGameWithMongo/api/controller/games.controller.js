@@ -6,14 +6,14 @@ getAll = function(req, res){
 
     let offset = 0;
     let count = 6;
-
+    const maxGames = 9;
     if(req.query && req.query.offset){
         offset = parseInt(req.query.offset)
     }
     if(req.query && req.query.count){
         count = parseInt(req.query.count)
-        if(count > 9){
-            res.json({"err":"your requested above 9"})
+        if(count > maxGames){
+            res.status(400).json({"err":"your requested above 9"})
             return
         }
     }
