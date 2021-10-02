@@ -6,8 +6,8 @@ const _addPublisher = function(req, res, game){
 
     console.log(" hereeeeeee");
 
-    game.publisher.name = req.body.name
-    game.publisher.country = req.body.country
+    game.publisher = {name: req.body.name, country: req.body.country}
+    //game.publisher.country = req.body.country
 
     game.save(function(err, updatedGame){
         if(err){
@@ -38,7 +38,7 @@ getOne = function(req, res){
                     console.log("No publisher");
                     res.status(404).json({"message": "No publisher found"})
                 }else{
-                    res.status(200).json()
+                    res.status(200).json(response.publisher)
 
                 }
             }
