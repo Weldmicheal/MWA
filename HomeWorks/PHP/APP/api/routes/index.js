@@ -1,41 +1,41 @@
 const express = require("express")
-const controllerOlympics = require("../controller/olympics.controller")
-const controllerSports = require("../controller/sports.controller")
-
+const controllerRaces = require("../controller/races.controller")
+const controllerCountries = require("../controller/countries.controller")
 const router = express.Router()
 
-router.route("/olympics")
-    .get(controllerOlympics.olympicsGetAll)
+router.route("/races")
+    .get(controllerRaces.racesGetAll)
 
-router.route("/olympics/new")
-     .post(controllerOlympics.olympicsAddOne)
+router.route("/races/new")
+     .post(controllerRaces.racesAddOne)
 
-router.route("/olympics/:olympicsId")
-     .get(controllerOlympics.olympicsGetOne)
+router.route("/races/:racingId")
+     .get(controllerRaces.racesGetOne)
 
-router.route("/olympics/:olympicsId")
-     .delete(controllerOlympics.olympicsDeleteOne)
+router.route("/races/:racingId")
+     .delete(controllerRaces.racesDeleteOne)
 
-router.route("/olympics/:olympicsId")
-     .put(controllerOlympics.olympicsUpdateOne)     
+router.route("/races/:racingId")
+     .put(controllerRaces.racesUpdateOne)
+     
+     // countries
+router.route("/races/:racingId/countries")
+     .get(controllerCountries.countriesGetAll)
 
-    
+router.route("/races/:racingId/countries/:countryId")
+     .get(controllerCountries.countriesGetOne)
 
-     // sports
-// router.route("/olympics/:olympicsId/sports")
-//      .get(controllerSports.sportsGetAll)
+router.route("/races/:racingId/countries")
+     .post(controllerCountries.countriesAddAll)
 
-// router.route("/olympics/:olympicsId/sports/:sportId")
-//      .get(controllerSports.sportsGetOne)
+router.route("/races/:racingId/countries/:countryId")
+     .delete(controllerCountries.countriesDeleteOne)
 
-// router.route("/olympics/:olympicsId/sports")
-//      .post(controllerSports.sportsAddAll)
-
-// router.route("/olympics/:olympicsId/sports/:sportId")
-//      .delete(controllerSports.sportsDeleteOne)
-
-// router.route("/olympics/:olympicsId/sports/:sportId")
-//      .put(controllerSports.sportsUpdateOne)
+router.route("/races/:racingId/countries/:countryId")
+     .put(controllerCountries.countriesUpdateOne)
 
 
+
+
+      
 module.exports = router;
