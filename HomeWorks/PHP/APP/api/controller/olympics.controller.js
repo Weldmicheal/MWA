@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const Student = mongoose.model("Student")
+const Olympics = mongoose.model("Olympics")
 
 getAll = function (req, res) {
 
@@ -20,13 +20,13 @@ getAll = function (req, res) {
         res.status(400).json({ "message": "QueryString offset and Count should be numbers" })
         return
     }
-    Student.find().skip(offset).limit(count).exec(function (err, students) {
+    Olympics.find().skip(offset).limit(count).exec(function (err, olympics) {
         if (err) {
-            console.log("Error finding students");
+            console.log("Error finding olympics");
             res.status(500).json(err)
         } else {
-            console.log("students retrieved");
-            res.status(200).json(students)
+            console.log("olympics retrieved");
+            res.status(200).json(olympics)
         }
 
     })
@@ -35,24 +35,24 @@ getAll = function (req, res) {
 
 getOne = function (req, res) {
 
-    const studentId = req.params.studentId
-    if (!mongoose.isValidObjectId(studentId)) {
-        console.log("\"" + studentId + "\" is invalid studentId");
-        res.status(400).json({ "message": "\"" + studentId + "\" is invalid studentId" })
+    const olympicsId = req.params.olympicsId
+    if (!mongoose.isValidObjectId(olympicsId)) {
+        console.log("\"" + olympicsId + "\" is invalid olympicsId");
+        res.status(400).json({ "message": "\"" + olympicsId + "\" is invalid olympicsId" })
         return
     }
-    Student.findById(studentId).exec(function (err, student) {
+    Olympics.findById(olympicsId).exec(function (err, olympics) {
         if (err) {
-            console.log("Error finding the student");
+            console.log("Error finding the olympics");
             res.status(500).json(err)
             return
         } else {
-            if (student) {
-                console.log("student found");
-                res.status(200).json(student)
+            if (olympics) {
+                console.log("olympics found");
+                res.status(200).json(olympics)
             } else {
-                console.log("Student with this id not available");
-                res.status(404).json({ "message": "Student with id \"" + studentId + "\" not available" })
+                console.log("Olympics with this id not available");
+                res.status(404).json({ "message": "Olympics with id \"" + olympicsId + "\" not available" })
             }
 
         }
@@ -63,11 +63,12 @@ getOne = function (req, res) {
 
 addOne = function (req, res) {
 
-    var newStudent = {
-        name : req.body.name,
-        GPA : req.body.GPA
+    var newOlympics = {
+        year : req.body.year,
+        city : req.body.city,
+        country: req.body.country
     }
-    Student.create(newStudent, function (err, response) {
+    Olympics.create(newOlympics, function (err, response) {
         if (err) {
             res.status(500).json({ error: err })
             return
@@ -78,20 +79,20 @@ addOne = function (req, res) {
 }
 
 deleteOne = function(req, res){
-    const studentId = req.params.studentId;
-    if(!mongoose.isValidObjectId(studentId)){
-        console.log("studentId is invalid");
-        res.status(400).json({"error":"\""+studentId +"\" is invalid studentId"})
+    const olympicsId = req.params.olympicsId;
+    if(!mongoose.isValidObjectId(olympicsId)){
+        console.log("olympicsId is invalid");
+        res.status(400).json({"error":"\""+olympicsId +"\" is invalid olympicsId"})
         return
     }else{
-        Student.findByIdAndRemove(studentId).exec(function(err, deletedStudent){
+        Olympics.findByIdAndRemove(olympicsId).exec(function(err, deletedOlympics){
             if(err){
-                console.log("Error deleting student");
+                console.log("Error deleting olympics");
                 res.status(500).json(err)
             }else {
-                if(!deletedStudent){
-                    console.log("Student id not found");
-                    res.status(404).json({"error":"\""+studentId+"\" not found"})
+                if(!deletedOlympics){
+                    console.log("Olympics id not found");
+                    res.status(404).json({"error":"\""+olympicsId+"\" not found"})
                 }else{
                 console.log("Deleted Successfully");
                 res.status(204).json()
@@ -102,26 +103,33 @@ deleteOne = function(req, res){
 }
 
 updateOne = function(req, res){
-    const studentId = req.params.studentId;
-    Student.findById(studentId).exec(function(err, student){
+    const olympicsId = req.params.olympicsId;
+    if(!mongoose.isValidObjectId(olympicsId)){
+        console.log("olympicsId is invalid");
+        res.status(400).json({"error":"\""+olympicsId +"\" is invalid olympicsId"})
+        return
+    }
+    Olympics.findById(olympicsId).exec(function(err, olympics){
         if(err){
-            console.log("Error finding student");
+            console.log("Error finding olympics");
             res.status(500).json(err)
             return
         }else{
-            if(!student){
-                console.log("Student Id not found");
-                res.status(404).json({"message":"\""+studentId + "\" not found"})
+            if(!olympics){
+                console.log("Olympics Id not found");
+                res.status(404).json({"message":"\""+olympicsId + "\" not found"})
             }else{
-                student.name = req.body.name;
-                student.GPA = parseFloat(req.body.GPA);                
-                student.save(function(err, updatedStudent){
+                olympics.year = ParseInt(req.body.year);
+                olympics.city = req.body.city   
+                olympics.country = req.body.country           
+        
+                olympics.save(function(err, updatedOlympics){
                     if(err){ 
                         console.log(err)
                         res.status(500).json(err)
                         return
                     }else{
-                        res.status(204).json()
+                        res.status(201).json(updatedOlympics)
                     }
                 })
 
@@ -129,11 +137,10 @@ updateOne = function(req, res){
         }
     })
 }
-
 module.exports = {
-    studentsGetAll: getAll,
-    studentsGetOne: getOne,
-    studentsAddOne: addOne,
-    studentsDeleteOne : deleteOne,
-    studentsUpdateOne : updateOne
+    olympicsGetAll: getAll,
+    olympicsGetOne: getOne,
+    olympicsAddOne: addOne,
+    olympicsDeleteOne : deleteOne,
+    olympicsUpdateOne : updateOne
 }

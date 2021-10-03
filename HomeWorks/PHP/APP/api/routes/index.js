@@ -1,25 +1,41 @@
 const express = require("express")
-const controllerStudents = require("../controller/students.controller")
-const controllerCourses = require("../controller/courses.controller")
+const controllerOlympics = require("../controller/olympics.controller")
+const controllerSports = require("../controller/sports.controller")
+
 const router = express.Router()
 
-router.route("/students")
-    .get(controllerStudents.studentsGetAll)
+router.route("/olympics")
+    .get(controllerOlympics.olympicsGetAll)
 
-router.route("/students/new")
-     .post(controllerStudents.studentsAddOne)
+router.route("/olympics/new")
+     .post(controllerOlympics.olympicsAddOne)
 
-router.route("/students/:studentId")
-     .get(controllerStudents.studentsGetOne)
+router.route("/olympics/:olympicsId")
+     .get(controllerOlympics.olympicsGetOne)
 
-router.route("/students/:studentId")
-     .delete(controllerStudents.studentsDeleteOne)
+router.route("/olympics/:olympicsId")
+     .delete(controllerOlympics.olympicsDeleteOne)
 
-router.route("/students/:studentId")
-     .put(controllerStudents.studentsUpdateOne)
-     
+router.route("/olympics/:olympicsId")
+     .put(controllerOlympics.olympicsUpdateOne)     
+
+    
+
+     // sports
+// router.route("/olympics/:olympicsId/sports")
+//      .get(controllerSports.sportsGetAll)
+
+// router.route("/olympics/:olympicsId/sports/:sportId")
+//      .get(controllerSports.sportsGetOne)
+
+// router.route("/olympics/:olympicsId/sports")
+//      .post(controllerSports.sportsAddAll)
+
+// router.route("/olympics/:olympicsId/sports/:sportId")
+//      .delete(controllerSports.sportsDeleteOne)
+
+// router.route("/olympics/:olympicsId/sports/:sportId")
+//      .put(controllerSports.sportsUpdateOne)
 
 
-
-      
 module.exports = router;

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
-require("./olympics-model")
+require("./racing-model")
 
-const dbURL = "mongodb://localhost:27017/OlympicsDB"
+const dbURL = "mongodb://localhost:27017/Racing"
 
 mongoose.connect(dbURL)
 
