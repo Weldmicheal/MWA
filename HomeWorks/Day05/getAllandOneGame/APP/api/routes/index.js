@@ -9,6 +9,5 @@ router.route("/games")
 router.route("/games/:gameId")
      .get(controllerGames.gamesGetOne)
 
-
  
 module.exports = router;

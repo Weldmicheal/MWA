@@ -7,8 +7,6 @@ const _addReviews = function (req, res, game) {
 
     var existingReviewsLen;
     existingReviewsLen = game.reviews.length
-    console.log(existingReviewsLen);
-
     var reviews = JSON.parse(JSON.stringify(req.body))
     reviews = reviews.reviews
     const reviewLength = reviews.length
