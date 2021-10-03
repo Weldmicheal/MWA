@@ -73,7 +73,6 @@ const _updateReview = function (req, res, game) {
     }else{
         insertIdx = game.reviews.length
     }
-    console.log("hiiiiiiii  " + index);
     game.reviews[insertIdx] = { name: req.body.name, review: req.body.review, date: req.body.date }
 
     game.save(function (err, updatedGame) {
