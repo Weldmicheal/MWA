@@ -5,7 +5,7 @@ const publisherSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    Country: {
+    country: {
         type: String,
         required: true
     }

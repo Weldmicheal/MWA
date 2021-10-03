@@ -29,25 +29,25 @@ getAll = function(req, res){
 
 getOne = function(req, res){
     const studentId = req.params.studentId
-    const courseId = req.params.courseId
+    const courseCode = req.params.courseId
 
-    if (!mongoose.isValidObjectId(studentId) || !mongoose.isValidObjectId(courseId)) {
+    if (!mongoose.isValidObjectId(studentId)) {
         console.log("studentId and courseId should be valid");
         res.status(400).json({ "message": " studentId and/or courseId is invalid" })
         return
     }else{
-        Student.findById(studentId).select("courses").exec(function(error, course){
+        Student.findById(studentId).select("courses").exec(function(err, studentt){
             if(err){
                 console.log(err);
                 res.status(500).json(err)
                 return 
             }else{
-                if(!doc){
+                if(!studentt){
                     console.log("Student Id not found");
                     res.status(404).json({"message": "course \""+studentId+"\" not found"})
                     return 
                 }else{
-                    res.status(200).json(course.courses.id(courseId))
+                    res.status(200).json(studentt.courses.find(course => course.code === courseCode))
                 }
             }
         })
