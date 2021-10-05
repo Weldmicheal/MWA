@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 require("./students-model")
 
-const dbURL = "mongodb://localhost:27017/SchoolDB"
+const dbURL = process.env.DATABASE_URL + process.env.DATABASE_NAME
 
 mongoose.connect(dbURL)
 

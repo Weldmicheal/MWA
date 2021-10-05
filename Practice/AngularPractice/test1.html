@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style>
+        .red {
+            border-color: red;
+        }
+
+        .green {
+            border-color: green;
+        }
+
+        .cx {
+            color: red;
+        }
+
+        .c2 {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div ng-app="">
+        Name:<input type="text" ng-model="name" placeholder="Enter name">
+        <p>{{name}}</p>
+        <p ng-bind="name"></p>
+
+        <div ng-app="h" ng-init="lo='ata'">
+            <input type="text" ng-model="lo">
+            <p>{{lo}}</p>
+
+        </div>
+        <p>{{lo}}</p>
+
+        <div ng-app="third" ng-init="number=0">
+            <button ng-click="number=number+1">{{number}}</button>
+            <input type="checkbox" ng-model="decrement">
+            <p ng-if="decrement">Checked</p>
+            <input type="text" ng-model="hei">
+            <p ng-show="hei == number">Correct</p>
+            <p ng-show="hei != number">Incorrect</p>
+        </div>
+        <div ng-init="num = 18">
+            <input type="text" ng-model="tama" ng-class="
+            {red: tama != num, green: tama == num}">
+        </div>
+
+        <div ng-init="numbers = [0,1,2,3,4,5]">
+            <ul>
+                <li ng-repeat="number in numbers" ng-class="{cx:$even, c2:$odd}">{{number}}</li>
+            </ul>
+        </div>
+
+        <div ng-init="students = [{name: 'Jack', course: 'MPP', gpa: 3},
+        {name:'Eng', course:'MWA', gpa: 2.5}, 
+        {name:'Jill', course:'WAA', gpa:3}]">
+            <select name="" id="" ng-model="student" ng-options="student.name for student in students">
+            </select>
+            <p>You selected:{{student.name}} ({{student.gpa}})</p>
+
+            <select name="" id="" ng-model="student" ng-options="student.name group by student.course for student in students"></select>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
