@@ -7,14 +7,15 @@ const _addReviews = function (req, res, game) {
 
     var existingReviewsLen;
     existingReviewsLen = game.reviews.length
-    var reviews = JSON.parse(JSON.stringify(req.body))
-    reviews = reviews.reviews
-    const reviewLength = reviews.length
-    for (let i = 0; i < reviewLength; i++) {
-        game.reviews[i + existingReviewsLen] = { name: reviews[i].name, review: reviews[i].review, date: reviews[i].date }
+
+    if (existingReviewsLen == 1 && game.reviews[0] === "") {
+        existingReviewsLen = 0
 
     }
-    console.log(game.reviews[0].name);
+    game.reviews[existingReviewsLen] = { name: req.body.name, review: req.body.review, date: req.body.date }
+
+
+
     game.save(function (err, updatedGame) {
         if (err) {
             console.log("Error adding reviews");
@@ -36,7 +37,7 @@ const _deleteReview = function (req, res, game) {
         if (game.reviews[i].id === reviewId) {
             index = i
             break;
-        }        
+        }
     }
     if (index != -1) {
         game.reviews.splice(index, 1)
@@ -63,12 +64,12 @@ const _updateReview = function (req, res, game) {
         if (game.reviews[i].id === reviewId) {
             index = i
             break;
-        }        
+        }
     }
     var insertIdx;
     if (index != -1) {
         insertIdx = index
-    }else{
+    } else {
         insertIdx = game.reviews.length
     }
     game.reviews[insertIdx] = { name: req.body.name, review: req.body.review, date: req.body.date }

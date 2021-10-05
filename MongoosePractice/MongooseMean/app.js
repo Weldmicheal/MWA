@@ -1,3 +1,4 @@
+require("dotenv").config({"path":".env"})
 const exp = require("constants")
 const express = require("express")
 
@@ -7,8 +8,12 @@ const routes = require("./api/routes")
 
 
 const app = express()
-app.set("port", 3000)
+if (isNaN(process.env.PORT)) {
+    process.env.PORT = 6000
 
+}
+process.env.PORT = process.env.PORT || 6000
+app.set("port", process.env.PORT)
 
 app.use(function(req, res, next){
     console.log(req.method, req.url)

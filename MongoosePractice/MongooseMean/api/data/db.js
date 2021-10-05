@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 require("./games-model")
 
-const dbURL = "mongodb://localhost:27017/meanGames"
+const dbURL = process.env.PORT
 
 mongoose.connect(dbURL, {useNewUrlParser: true, useUnifiedTopology: true})
 mongoose.connection.on("connected", function(){

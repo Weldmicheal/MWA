@@ -2,12 +2,10 @@ const mongoose = require("mongoose")
 
 const publisherSchema = new mongoose.Schema({
     name: {
-        type: String,
-        required: true
+        type: String
     },
     country: {
-        type: String,
-        required: true
+        type: String
     }
 })
 

@@ -11,11 +11,14 @@ const _addCountries = function (req, res, racing) {
     var countries = JSON.parse(JSON.stringify(req.body))
     //countries = countries.countries
     const numPlayersLength = countries.length
-    console.log("hiiiiii ", numPlayersLength);
     for (let i = 0; i < numPlayersLength; i++) {
         racing.countries[i + existingCountriesLen] = { name: countries[i].name, numPlayers: countries[i].numPlayers }
 
     }
+
+    // to add a single entry
+    //racing.countries[existingCountriesLen] = { name: req.body.name, numPlayers: req.body.numPlayers }
+
     racing.save(function (err, updatedRacing) {
         if (err) {
             console.log("Error adding countries");
