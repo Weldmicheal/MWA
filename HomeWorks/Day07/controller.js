@@ -1,4 +1,4 @@
-angular.module("myPropperApp").controller("MyPropperController", MyPropperController)
+angular.module("myUserApp").controller("MyPropperController", MyPropperController)
 
 function MyPropperController(){
     const vm = this

@@ -1,4 +1,4 @@
-angular.module("myPropperApp", ["ngRoute"]).config(config)
+angular.module("myUserApp", ["ngRoute"]).config(config)
 
 function config($routeProvider){
     $routeProvider.when("/", {
@@ -11,13 +11,13 @@ function config($routeProvider){
         controller: "AboutController",
         controllerAs: "aboutCtrl"
     }).when('/users', {
-        templateUrl:"./posts/posts.html",
-        controller: "PostsController",
-        controllerAs: "postsCtrl"
-    }).when('/users/:postId', {
-        templateUrl:"./post/post.html",
-        controller: "PostController",
-        controllerAs: "postCtrl"
+        templateUrl:"./users/users.html",
+        controller: "UsersController",
+        controllerAs: "usersCtrl"
+    }).when('/users/:userId', {
+        templateUrl:"./user/user.html",
+        controller: "UserController",
+        controllerAs: "userCtrl"
     }).otherwise({
         redirectTo:"/"
     })

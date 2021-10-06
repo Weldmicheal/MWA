@@ -1,16 +1,16 @@
-angular.module("myPropperApp").factory("PostFactory", PostFactory)
+angular.module("myUserApp").factory("UserFactory", UserFactory)
 
-function PostFactory($http){
+function UserFactory($http){
     return {
-        getAllPosts:getAll,
-        getOnePost: getOne
+        getAllUsers:getAll,
+        getOneUser: getOne
     }
     function getAll(){
         return $http.get("https://jsonplaceholder.typicode.com/users")
         .then(complete).catch(failed)
     }
-    function getOne(postId){
-        return $http.get("https://jsonplaceholder.typicode.com/users/" + postId)
+    function getOne(userId){
+        return $http.get("https://jsonplaceholder.typicode.com/users/" + userId)
         .then(complete).catch(failed)
     }
 
