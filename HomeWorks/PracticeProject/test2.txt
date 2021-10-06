@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app = "myFirstApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+
+  <style>
+    .ng-cloak, [ng-cloak], [ng\:cloak]{
+      display:none !important
+    }
+    .red{
+      color: red
+    }
+    .green {
+      color: green
+    }
+  
+  </style>
+  <script>
+    angular.module("myFirstApp", [])
+      .controller("myFirstController", MyFirstController)
+      .controller("mySecondController", MySecondController)
+    function MyFirstController(){
+      const vm = this
+      vm.username="Jack"
+      vm.students=[{fname:'Wel', lname:'nam', gpa:3.0, course:'MWA'}, {fname: 'ta', lname:'lname', gpa:3.3, course:'MPP'}, {fname:'Wel', lname:'nam', gpa:3.9, course:'EA'}]
+       vm.number = 0
+       vm.increment = function(value){
+         vm.number = vm.number + value
+       };
+      vm.decreament = function(value){
+         vm.number = vm.number - value
+       };
+    }
+    function MySecondController(){
+      const vm= this
+      vm.username="John"
+      vm.course="MWA"
+    }
+  </script>
+</head>
+<body >
+  
+  <div ng-controller="myFirstController as MyJackController"> 
+    <p>Hello {{MyJackController.username}}</p>
+    
+    number is {{MyJackController.number}}<br>    
+  
+  <button ng-click = "increment(5)">+5</button>
+  <button ng-click = "decreament(-5)">5</button>
+  
+  <div ng-controller="mySecondController as MyJohnController">
+    The course is {{MyJohnController.course}}<br>
+    The user is {{MyJohnController.username}}<br>
+    The number is {{MyJackController.number}}<br>
+    The user is {{MyJackController.username}}<br>
+  </div>
+  </div>
+ 
+    
+
+</body>
+  
+</html>

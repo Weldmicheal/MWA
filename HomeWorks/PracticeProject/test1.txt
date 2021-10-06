@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app = "myFirstApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+
+  <style>
+    .ng-cloak, [ng-cloak], [ng\:cloak]{
+      display:none !important
+    }
+    .red{
+      color: red
+    }
+    .green {
+      color: green
+    }
+  
+  </style>
+  <script>
+    angular.module("myFirstApp", [])
+      .controller("myFirstController", MyFirstController)
+    function MyFirstController($scope){
+      $scope.username="Jack"
+      $scope.students=[{fname:'Wel', lname:'nam', gpa:3.0, course:'MWA'}, {fname: 'ta', lname:'lname', gpa:3.3, course:'MPP'}, {fname:'Wel', lname:'nam', gpa:3.9, course:'EA'}]
+       $scope.number = 0
+       $scope.increment = function(value){
+         $scope.number = $scope.number + value
+       };
+      $scope.decreament = function(value){
+         $scope.number = $scope.number - value
+       };
+    }
+  </script>
+</head>
+<body >
+  
+  <p ng-controller="myFirstController"> {{username}}</p>
+  
+  <button ng-click = "increment(1)">b</button>
+  <button ng-click = "decreament(-1)">b</botton>
+  
+  <div ng-init = "students">
+    <ul>
+      <li ng-repeat="name in students | filter:searchText" ng-class = '{red:$even, green:$odd}'>{{name.fname}},{{name.lname}},{{name.gpa}},{{name.course}}</li>
+      
+    </ul>
+    
+    <input type="text" ng-model="searchText.course">
+    <select ng-model="selectedStudent" ng-options = "student.fname group by student.course for student in students">
+      
+    </select><br>
+    Selected value is {{selectedStudent}}<br><br>
+    
+    <div ng-init="title='Maharishi International University'">
+      <p>{{total|currency:"$"}}</p>
+        <p>{{total|number:5}}</p>
+      <p>{{title|uppercase}}</p>
+    </div>
+    <div ng-init="firstDayOfCourse = 1633452003">
+      <p>{{firstDayOfCourse|date:"MMMM dd/yyyy a hh:mm:ss(sss)"}}</p>
+       
+    </div>
+    <input type = "text" ng-model="guess" ng-class="{red: guess=number, green:guess != number}">
+    
+    <p ng-hide="guess != number">Correct</p>
+    <p ng-hide="guess == number">Incorrect</p>
+  </div><br>
+  
+  <div ng-init="numbers = [0, 1, 2, 3, 4]">
+    <p> {{numbers|limitTo:2}}</p>
+  </div>
+  
+  <input type = "text" ng-model = "username">
+
+</body>
+</html>
