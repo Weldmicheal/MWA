@@ -6,11 +6,11 @@ function PostFactory($http){
         getOnePost: getOne
     }
     function getAll(){
-        return $http.get("https://jsonplaceholder.typicode.com/users")
+        return $http.get("https://jsonplaceholder.typicode.com/posts")
         .then(complete).catch(failed)
     }
     function getOne(postId){
-        return $http.get("https://jsonplaceholder.typicode.com/users/" + postId)
+        return $http.get("https://jsonplaceholder.typicode.com/posts/" + postId)
         .then(complete).catch(failed)
     }
 

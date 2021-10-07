@@ -14,7 +14,6 @@ function UserFactory($http){
         .then(complete).catch(failed)
     }
 
-
     function complete(response){
         return response.data
 

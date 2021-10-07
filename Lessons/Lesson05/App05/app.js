@@ -10,11 +10,11 @@ function config($routeProvider){
         templateUrl:"./about/about.html",
         controller: "AboutController",
         controllerAs: "aboutCtrl"
-    }).when('/users', {
+    }).when('/posts', {
         templateUrl:"./posts/posts.html",
         controller: "PostsController",
         controllerAs: "postsCtrl"
-    }).when('/users/:postId', {
+    }).when('/posts/:postId', {
         templateUrl:"./post/post.html",
         controller: "PostController",
         controllerAs: "postCtrl"
