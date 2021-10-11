@@ -22,3 +22,7 @@ addOne = function(req, res){
         }
     })
 }
+
+module.exports = {
+    publisherAddOne:addOne
+}

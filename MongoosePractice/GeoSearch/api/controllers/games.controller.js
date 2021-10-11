@@ -23,7 +23,7 @@ const runGeoQuery = function(req, res){
     }
     Game.find(query).exec(function(err, games){
         if(err){
-            console.log("Error finding games");
+            console.log("Error finding games 1111");
             res.status(500).json(err)
         }
         console.log("Found games", games);
@@ -37,6 +37,7 @@ getAll = function(req, res){
     let count = 6;
     const maxCount = 10;
     if(req.query && req.query.lat && req.query.lng){
+        console.log("hhhhhhhhhhhhhhhhh");
         runGeoQuery(req, res)
         return
     }

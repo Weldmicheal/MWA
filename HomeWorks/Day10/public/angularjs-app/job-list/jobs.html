@@ -1,0 +1,63 @@
+<h1>{{vm.title}}</h1>
+
+<form name="vm.jobSearch" ng-submit="vm.addJob()">
+    To search a new job please fill in all the field below <br>
+    Title : <input type="text" name="title" required ng-model="vm.jobTitle" style="color: black">
+    <span ng-show="vm.jobForm.title.$dirty && vm.jobForm.title.$invalid" style="color: red;"> title should be
+        string</span>
+    Salary : <input type="number" name="salary" min="0" required ng-model="vm.jobSalary" style="color: black">
+    <span ng-show="vm.jobSearch.salary.$dirty && vm.jobForm.salary.$invalid" style="color: red;"> salary should be
+        digits </span>
+
+    Description : <input type="text" name="description" required ng-model="vm.jobDescription" style="color: black">
+    <span ng-show="vm.jobSearch.description.$dirty && vm.jobForm.description.$invalid" style="color: red;"> description
+        should be required </span>
+
+    PostDate : <input type="date" name="postDate" ng-model="vm.jobPostDate" style="color: black">
+    <span ng-show="vm.jobSearch.postDate.$dirty && vm.jobForm.postDate.$invalid" style="color: red;"> postDate should be
+        date type </span>
+
+    <button type="submit" class="btn-success">Search Job</button>
+</form>
+<table>
+    <tr ng-repeat="job in vm.jobs ">
+        <td>{{job.title}}</a></td>
+        <td><a ng-href="#!/job/{{job._id}}">Details</a></td>
+        <td><span><button style="background-color: red;" ng-click="vm.delete(job._id)">DeleteJob</button></span></td>
+    </tr>
+</table>
+
+<div >
+    
+        <select id="numberOfjobs" ng-model="selectedNumber" ng-options = "num for num in vm.numberofJobs"
+        >
+            
+        </select>
+    <span ng-if="selectedNumber">{{selectedNumber}} </span>
+    
+    <span class="iterate"> <button  ng-click="vm.previous()" style="margin: 10px;">previous</button>
+        <button  ng-click="vm.next()">next</button></span>
+
+</div>
+
+
+<br><br>
+<form name="vm.jobForm" ng-submit="vm.addJob()">
+    To add a new job please fill in all the field below <br>
+    Title : <input type="text" name="title" required ng-model="vm.jobTitle" style="color: black">
+    <span ng-show="vm.jobForm.title.$dirty && vm.jobForm.title.$invalid" style="color: red;"> title should be
+        string</span><br>
+    Salary : <input type="number" name="salary" min="0" required ng-model="vm.jobSalary" style="color: black">
+    <span ng-show="vm.jobForm.salary.$dirty && vm.jobForm.salary.$invalid" style="color: red;"> salary should be digits
+    </span><br>
+
+    Description : <input type="text" name="description" required ng-model="vm.jobDescription" style="color: black">
+    <span ng-show="vm.jobForm.description.$dirty && vm.jobForm.description.$invalid" style="color: red;"> description
+        should be required </span><br>
+
+    PostDate : <input type="date" name="postDate" ng-model="vm.jobPostDate" style="color: black">
+    <span ng-show="vm.jobForm.postDate.$dirty && vm.jobForm.postDate.$invalid" style="color: red;"> postDate should be
+        date type </span><br>
+
+    <button type="submit" class="btn-success">Add Job</button>
+</form>

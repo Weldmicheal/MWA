@@ -1,0 +1,15 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "job search application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "JOB",
+    "SEARCH"
+  ],
+  "author": "Weldmicheal Berahnu",
+  "license": "ISC"
+}

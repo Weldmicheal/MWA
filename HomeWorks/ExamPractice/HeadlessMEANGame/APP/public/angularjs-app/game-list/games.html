@@ -1,0 +1,16 @@
+<h1>{{vm.title}}</h1>
+
+<ul>
+    <li ng-repeat="game in vm.games">
+        <a ng-href="#!/game/{{game._id}}">{{game.title}}</a>
+    </li>
+</ul>
+
+<form name="vm.gameForm" ng-submit="vm.addGame()">
+    To add a new game please fill in all the field below <br>
+    Title : <input type="text" name="title"
+    required ng-model="vm.gameTitle" style="color: black"><br>
+    Price : <input type="text" name="price"
+    required ng-model="vm.gamePrice" style="color: black"><br>
+    <button type="submit" class="btn-success">Add Game</button>
+</form>

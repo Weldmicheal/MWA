@@ -1,0 +1,59 @@
+To search a race please fill in the field below <br>
+RaceName : <input type="text" name="name" required ng-model="vm.name" style="color: black">
+<span ng-show="vm.name.$dirty && vm.name.$invalid" style="color: red;"> name should be
+    number</span>
+
+
+
+<button ng-click="vm.findRace()">Search Race</button>
+
+<span ng-show="vm.raceParams" style="color: red;">Please insert valid coordinates</span>
+
+
+<table>
+    <tr ng-repeat="race in vm.races ">
+        <td>{{race.name | uppercase}}</a></td>
+        <td><a ng-href="#!/race/{{race._id}}">Details</a></td>
+        <td><span><button style="background-color: lightblue;" ng-click="vm.viewParticipantCountries(race._id)">participantCountries</button></span>
+        <td><span><button style="background-color: red;" ng-click="vm.delete(race._id)">DeleteRace</button></span></td>
+        </td>
+    </tr>
+</table>
+
+<div>
+
+    <select id="numberOfraces" ng-model="vm.selectedNumber" ng-onchange="vm.getNRaces(num)"
+        ng-options="num for num in vm.numberofRaces">
+
+    </select>
+    <div ng-if="vm.selectedNumber !=0? vm.getNRaces(vm.selectedNumber):cc=true;">{{num}}</div>
+
+    <span ng-if="selectedNumber">{{selectedNumber}} </span>
+
+    <span class="iterate"> <button ng-click="vm.previous()" style="margin: 10px;">previous</button>
+        <button ng-click="vm.next()">next</button></span>
+
+</div>
+
+
+<br><br>
+<form name="vm.raceForm" ng-submit="vm.addRace()">
+    To add a new race please fill in all the field below <br>
+    Race : <input type="text" name="name" required ng-model="vm.raceRace" style="color: black">
+    <span ng-show="vm.raceForm.name.$dirty && vm.raceForm.name.$invalid" style="color: red;"> name should be
+        string</span><br>
+    NumPlayers : <input type="number" name="numPlayers" min="0" required ng-model="vm.raceNumPlayers"
+        style="color: black">
+    <span ng-show="vm.raceForm.numPlayers.$dirty && vm.raceForm.numPlayers.$invalid" style="color: red;"> numPlayers
+        should be digits
+    </span><br>
+
+    WinnerCountry : <input type="text" name="country" required ng-model="vm.raceCountry" style="color: black">
+    <span ng-show="vm.raceForm.country.$dirty && vm.raceForm.country.$invalid" style="color: red;"> country
+        should be required </span><br>
+    
+
+
+    <span><button type="submit" class="btn-success">Add Race</button></span>
+
+</form>

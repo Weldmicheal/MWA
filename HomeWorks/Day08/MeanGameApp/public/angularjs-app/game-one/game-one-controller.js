@@ -10,6 +10,7 @@ function GameController(GamesFactory, $routeParams){
     const id = $routeParams.gameId
     GamesFactory.getOneGame(id).then(function(response){
         vm.game = response
+        console.log(response);
         vm.rating= _getStarRating(response.rate)
     })
 

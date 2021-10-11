@@ -1,0 +1,20 @@
+<h1>Information about game: 
+    <p>{{vm.game.title}} 
+        <game-rating> </game-rating>
+        </p>
+        
+</h1> <span style="float: right; "><button  style ="background-color: red;" ng-click="vm.delete()">DeleteGame</button></span>
+<p>
+    Price: {{vm.game.price}}<br>
+    Minimum Players: {{vm.game.minPlayers}} <br>
+    Maximmum Players: {{vm.game.maxPlayers}} <br>
+    Minimum Age: {{vm.game.minAge}} <br>
+    Publisher : {{vm.game.Publisher.name}}<br>
+
+    <p>
+        <p ng-if="!vm.status" style="color: red;">{{vm.message}}</p>      
+        <a style="text-align: center; background-color: lightgrey; border: 2px solid gray;" ng-href="#!/games">BackToHome</a>
+        
+    </p>
+
+</p>

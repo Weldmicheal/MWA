@@ -1,0 +1,20 @@
+<h1>Information about job: 
+    <p>{{vm.job.title}} 
+        
+        </p>
+        
+</h1> 
+<p>
+    Salary: {{vm.job.salary | currency}}<br>
+    Description: {{vm.job.description}} <br>
+    Skills: {{vm.job.skills}} <br>
+    Exprience: {{vm.job.exprience}} <br>
+    PostDate: {{vm.job.postDate | date}} <br>
+
+    <p>
+        <p ng-if="!vm.status" style="color: red;">{{vm.message}}</p>      
+        <a style="text-align: center; background-color: lightgrey; border: 2px solid gray;" ng-href="#!/jobs">BackToHome</a>
+        
+    </p>
+
+</p>
