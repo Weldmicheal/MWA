@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
 require("./racing-model")
+require("./user-model")
 
 const dbURL = process.env.DATABASE_URL + process.env.DATABASE_NAME
 

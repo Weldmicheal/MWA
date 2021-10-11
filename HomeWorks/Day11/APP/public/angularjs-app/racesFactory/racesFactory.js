@@ -11,7 +11,9 @@ function RacesFactory($http){
         addOneCountry : addCountry,
         getOneCountry : getCountry,
         getAllCountries : getCountries,
-        getAllRacesByName : getRacesByName
+        getAllRacesByName : getRacesByName,
+
+        addOneUser : addOneUser
 
     }
 
@@ -55,6 +57,12 @@ function RacesFactory($http){
     }
     function updateOne(raceId, race){
         return $http.put("/api/races/" + raceId, race)
+            .then(complete).catch(failed)
+    }
+
+    function addOneUser(user){
+        console.log(user + "userrrrrrrrrrrrrrrrr");
+        return $http.post("/api/users/register", user)
             .then(complete).catch(failed)
     }
 

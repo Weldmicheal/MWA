@@ -1,6 +1,8 @@
 const express = require("express")
 const controllerRaces = require("../controller/races.controller")
 const controllerCountries = require("../controller/countries.controller")
+const controllerUsers = require("../controller/users.controller")
+
 const router = express.Router()
 
 router.route("/races")
@@ -34,7 +36,10 @@ router.route("/races/:racingId/countries/:countryId")
 router.route("/races/:racingId/countries/:countryId")
      .put(controllerCountries.countriesUpdateOne)
 
+     // Users
 
+router.route("/users/register")
+     .post(controllerUsers.addOneUser)
 
 
       
