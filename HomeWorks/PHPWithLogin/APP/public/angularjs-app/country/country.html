@@ -1,0 +1,16 @@
+<h1>Information about: 
+    <p>{{vm.country.name}} 
+        
+        </p>
+        
+</h1> 
+<p>
+    NumPlayers: {{vm.country.numPlayers}}<br>
+
+    <p>
+        <p ng-if="!vm.status" style="color: red;">{{vm.message}}</p>      
+        <a style="text-align: center; background-color: lightgrey; border: 2px solid gray;" ng-href="#!/races/{{race._id}}/countries">BackToCountries</a>
+        
+    </p>
+
+</p>

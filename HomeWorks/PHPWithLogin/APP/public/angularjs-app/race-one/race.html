@@ -1,0 +1,41 @@
+<h1>Information about race: 
+    <p>{{vm.race.name}} 
+        
+        </p>
+        
+</h1> 
+<p>
+    NumPlayers: {{vm.race.numPlayers}}<br>
+    WinnerCountry: {{vm.race.country}} <br>
+
+    <p>
+        <p ng-if="!vm.status" style="color: red;">{{vm.message}}</p>   
+
+ 
+        <a style="text-align: center; background-color: lightgrey; border: 2px solid gray;" ng-href="#!/races">BackToHome</a>
+        <span ng-show = "!vm.updateFlag"><button style="background-color: brown;" ng-click="vm.showForm()">UpdateRace</button></span>
+
+    </p>
+
+    <form ng-show = "vm.updateFlag" name="vm.raceForm" ng-submit="vm.updateRace()">
+        To update the race please fill in all the field below <br>
+        Race : <input type="text" name="name" required ng-model="vm.raceRace" style="color: black">
+        <span ng-show="vm.raceForm.name.$dirty && vm.raceForm.name.$invalid" style="color: red;"> name should be
+            string</span><br>
+        NumPlayers : <input type="number" name="numPlayers" min="0" required ng-model="vm.raceNumPlayers"
+            style="color: black">
+        <span ng-show="vm.raceForm.numPlayers.$dirty && vm.raceForm.numPlayers.$invalid" style="color: red;"> numPlayers
+            should be digits
+        </span><br>
+    
+        WinnerCountry : <input type="text" name="country" required ng-model="vm.raceCountry" style="color: black">
+        <span ng-show="vm.raceForm.country.$dirty && vm.raceForm.country.$invalid" style="color: red;"> country
+            should be required </span><br>
+        
+    
+    
+        <span><button type="submit" class="btn-success">Update</button></span>
+    
+    </form>
+
+</p>

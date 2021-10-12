@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="olympicRaces">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body> 
+    
+
+    <races-Navigation></races-Navigation>
+    <div class="container">
+        <div ng-view></div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p class = "text-muted text-center">
+                <a href="https://compro.miu.edu" target="_blank">
+                <img src="./img/compro-web-logo-442x112.webp"
+                height="60" alt="MIU compro">
+                </a><br>
+
+            </p>
+        </div>
+    </footer>  
+
+    <!--    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-route.min.js"></script>
+     -->
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>    
+    <script src="angularjs-app/app.js"></script>
+    <script src="angularjs-app/race-list/races-list-controller.js"></script>
+    <script src="angularjs-app/racesFactory/racesFactory.js"></script>
+    <script src="angularjs-app/race-one/race-one-controller.js"></script>
+    <script src="angularjs-app/country/country-controller.js"></script>
+    <script src="angularjs-app/country-list/countries-list-controller.js"></script>
+    <script src="angularjs-app/register/register-controller.js"></script>
+    <script src="angularjs-app/navigation-directive/navigation-directive.js"></script>
+    <script src="angularjs-app/login/login-controller.js"></script>
+    <script src="angularjs-app/authentication/auth-factory.js"></script>
+    <script src="angularjs-app/authentication/auth-interceptor.js"></script>
+    <script src="angularjs-app/login/login-controller.js"></script>
+    <!-- <script src="angularjs-app/game-rating/game-rating-directive.js"></script> -->
+</body>
+</html>

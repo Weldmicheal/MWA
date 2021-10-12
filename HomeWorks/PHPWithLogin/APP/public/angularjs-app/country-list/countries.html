@@ -1,0 +1,25 @@
+<table>
+    <tr ng-repeat="country in vm.countries ">
+        <td>{{country.name | uppercase}}</a></td>
+        <td><a ng-href="#!/race/{{race._id}}/countries/{{country._id}}">Details</a></td>
+         <td><span><button style="background-color: red;" ng-click="vm.delete(race._id)">DeleteCountry</button></span></td>
+        </td>
+    </tr>
+</table>
+
+<span ng-show = "!vm.hideAddButton"><button ng-model = "vm.addButton" ng-click = "vm.showHidden()">+AddCountry</button></span>
+<form ng-show="vm.showHiddenFlag" name="vm.participantCountry" ng-submit="vm.addParticipant()">
+
+    ParticipantCountry : <input type="text" name="country" required ng-model="vm.raceCountry" style="color: black">
+    <span ng-show="vm.participantCountry.country.$dirty && vm.participantCountry.country.$invalid"
+        style="color: red;"> country
+        should be required </span><br>
+    NumPlayers : <input type="number" name="numPlayers" min="0" required ng-model="vm.raceNumPlayers"
+        style="color: black">
+    <span ng-show="vm.participantCountry.numPlayers.$dirty && vm.participantCountry.numPlayers.$invalid"
+        style="color: red;"> numPlayers should be digits
+    </span><br>
+
+    <span><button type="submit" class="btn-success">+Submit</button></span>
+
+</form>
