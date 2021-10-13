@@ -1,9 +1,9 @@
 angular.module("olympicRaces").factory("AuthFactory", AuthFactory)
 
-function AuthFactory(){
+function AuthFactory() {
     return {
-        auth: auth 
-        
+        auth: auth
+
     }
-    var auth={ifLoggedId:false}
+    var auth = { isLoggedIn: false }
 }

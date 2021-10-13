@@ -1,0 +1,13 @@
+Answers:
+
+1.In node app we have callbacks. These callbacks are inserted in their corresponding eventloop queues. When ever
+the result is ready, it triggers the call back in the eventloop queue and sent to V8 for 
+execution. Hence, we say Node is event-driven because an event( in this case the result) triggers the callback 
+in the eventloop queue to be sent to V8.
+
+2. Yes, we can write. We have two types of codes, synchronous and asynchronous. For the asynchronous, we need
+event to trigger the call back. For the synchronous code, however, the execution is done v8 itself without requiring
+an event/result to trigger the execution.
+
+3.Layout tree only displays pages that are in the visible window. That is to say, it doesn't render beyond the
+visible page. Chrome incorporates this behaviour for better and efficient rendering performace of web pages.

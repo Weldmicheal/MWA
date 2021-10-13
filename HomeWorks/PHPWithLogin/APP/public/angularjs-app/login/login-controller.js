@@ -23,12 +23,20 @@ function LoginController($http, $location, $window, AuthFactory) {
         $http.post("/api/users/login", user)
             .then(function (response) {
                 console.log(response);
+
+                if(response.data.success){
+                    $window.sesssionStorage.token = response.data.token
+                    AuthFactory.isLoggedIn = true
+                }
             }).catch(function (err) {
                 console.log(err);
             })
     }
 
     vm.logout = function(){
+        AuthFactory.isLoggedIn = false
+        delete $window.sesssionStorage.token
+        $location.path("/")
 
     }
     vm.isActiveTab = function(url){
