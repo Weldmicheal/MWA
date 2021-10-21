@@ -1,0 +1,32 @@
+<div *ngIf="!userLoggedIn">
+    <form [formGroup] = "loginForm" 
+    (ngSubmit)="onLogin()" class="bg-dark">   
+        <div>
+            <label>
+                Username: 
+                <input formControlName = "username" placeholder="Username"
+                />
+            </label>
+        </div>
+        <div>
+            <label>
+                Password: 
+                <input type="password" formControlName = "password" placeholder="Password"
+                />
+            </label>
+        </div>
+        
+    
+        <button type="submit" [disabled] = "loginForm.invalid" style="color: black;">Login</button>
+        {{errorMessage}}
+    </form>
+</div>
+
+<div *ngIf="userLoggedIn">
+    Welcome {{nameOfUser}}
+    <button (click) = "onLogout()" style="color: black;">Logout</button>
+   
+</div>
+
+
+

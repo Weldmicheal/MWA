@@ -2,8 +2,9 @@
 
 
 <ul>
-    <li *ngFor="let game of games">       
-        Title: {{game.title}} <a href="games/{{game._id}}">Details</a><br>
+    <li *ngFor="let game of games"> 
+        <a routerLink = "">{{game.title}}</a>      
+        <!-- Title: {{game.title}} <a href="games/{{game._id}}">Details</a><br> -->
         
     </li>
 </ul>

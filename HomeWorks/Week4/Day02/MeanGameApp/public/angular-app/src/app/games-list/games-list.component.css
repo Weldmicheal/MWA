@@ -1,0 +1,25 @@
+
+
+
+
+.iterate {
+    margin-left: 650px;
+}
+
+#numberOfgames {
+    margin-left: 10px;
+}
+td {
+    color: black;
+    padding: 0 50px 10px 50px;
+    background-color: lightgray;
+}
+
+table {
+    border: 5px solid black; 
+    margin: 50px 50px 10px 10px;
+}
+tr {
+    border: 2px solid black;
+    padding: 0 10px;
+}

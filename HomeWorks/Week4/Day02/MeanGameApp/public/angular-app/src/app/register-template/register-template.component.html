@@ -1,0 +1,43 @@
+
+<h1>Register</h1>
+<div *ngIf = "message" class="alert alert-success" role="alert">
+    <p>{{message}}</p>
+    
+</div>
+
+<div *ngIf = "err" class="alert alert-danger" role="alert">
+    {{err}}
+</div>
+
+<form *ngIf = "!message" #registrationForm = "ngForm" (ngSubmit) = "onRegisterUser()" novalidate>    
+    <div class="form-group">
+        <label>
+            Username: 
+            <input name = "username" class="form-control" id="username" placeholder="Username" ngModel/>
+            <span *ngIf="registrationForm.controls.username.invalid && 
+             (registrationForm.controls.username.dirty || registrationForm.controls.username.touched)">Please provide a username</span>
+       
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            Password: 
+            <input type="password" class="form-control" name = "password"  id="password" placeholder="Password" ngModel/>
+            <span *ngIf="registrationForm.controls.password.invalid && 
+             (registrationForm.controls.password.dirty || registrationForm.controls.password.touched)">Please provide a password</span>
+       
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            passwordRepeat: 
+            <input type="password" class="form-control" name = "passwordRepeat" placeholder="Password Repeat" ngModel/>
+            <span *ngIf="registrationForm.controls.passwordRepeat.invalid && 
+             (registrationForm.controls.passwordRepeat.dirty || registrationForm.controls.passwordRepeat.touched)">Please Repeat Password</span>
+       
+        </label>
+    </div >
+
+    <button type="submit" [disabled] = "registrationForm.invalid"  class="btn btn-success">Register</button>
+    <button type="button" (click)="onClear()">Clear</button>
+</form>

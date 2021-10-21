@@ -1,0 +1,74 @@
+
+
+
+
+<!-- <p style="margin:10px;"><a style="text-align: center; margin:10px; background-color: lightgrey; border: 2px solid gray;" ng-href="#!/">BackToHome</a></p>
+
+<h1 style="text-align: center" >{{vm.title}}</h1>
+ -->
+
+
+
+
+<table>
+    <tr *ngFor="let game of games">
+        <td>{{game.title}}</td>        
+        <td><a routerLink = "{{game._id}}">Details</a></td>
+        <td><span><button style="background-color: red;" (click)="delete(game._id)">DeleteGame</button></span></td>
+    </tr>
+</table>
+
+<div>
+
+    <!-- <select id="numberOfgames" ng-model="vm.selectedNumber" ng-onchange="vm.getNGames(num)"
+        ng-options="num for num in vm.numberofGames">
+
+    </select>
+    <div ng-if="vm.selectedNumber !=0? vm.getNGames(vm.selectedNumber):cc=true;">{{num}}</div>
+
+    <span ng-if="selectedNumber">{{selectedNumber}} </span> -->
+
+    <span class="iterate"> <button (click)="onPrevious()" style="margin: 10px;">previous</button>
+        <button (click)="onNext()">next</button></span>
+
+</div>
+
+
+<br><br>
+To add a new game please fill in all the field below
+<form #gameForm = "ngForm" (ngSubmit) = "onAddGame()" novalidate>
+        <div>
+            <label>
+                Title:<input type="text" name = "title"  id="title" placeholder="Game Title" 
+                 ngModel required/>
+                 
+                 </label>
+        </div>
+        <div>
+            <label>
+                Price: 
+                <input type="number" name = "price"  id="price" placeholder="Price" ngModel/>
+            </label>
+        </div>
+        <div>
+            <label>
+                MinPlayers: 
+                <input type="number" name = "minPlayers"  id="minPlayers" placeholder="MinPlayers" ngModel/>
+            </label>
+        </div>
+        <div>
+            <label>
+                MaxPlayers: 
+                <input type="number" name = "maxPlayers" placeholder="maxPlayers" ngModel/>
+            </label>
+        </div>
+        <div>
+            <label>
+                minAge: 
+                <input type="number" name = "minAge" placeholder="minAge" ngModel/>
+            </label>
+        </div>
+    
+        <button type="submit" [disabled] = "gameForm.invalid" >Add</button>
+        <button type="button" (click)="onClear()">Clear</button>
+    </form>

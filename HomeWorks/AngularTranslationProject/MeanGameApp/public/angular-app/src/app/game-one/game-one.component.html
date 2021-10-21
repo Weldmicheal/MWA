@@ -1,0 +1,63 @@
+<h1>Information about game: <br>
+    {{game?.title}} <br>
+</h1>
+
+    
+         
+        Price: {{game?.price}}<br>
+        MinPlayers: {{game?.minPlayers}}<br>
+        MaxPlayers: {{game?.maxPlayers}}<br>
+        minAge: {{game?.minAge}}
+   
+
+    <p>
+    <a style="text-align: center; background-color: lightgrey; border: 2px solid gray;" routerLink="/games">BackToGames</a>
+<span *ngIf="!updateFlag"><button style="background-color: brown;"
+        (click)="showForm()">UpdateGame</button></span>
+
+</p>
+
+
+
+<form *ngIf="updateFlag" #gameForm = "ngForm" (ngSubmit) = "onUpdateGame()" novalidate>
+    To update the game please fill in all the field below <br>
+
+    <div>
+        <label>
+            Title:<input type="text" name = "title"  id="title" placeholder="Game Title" 
+             ngModel required/>
+             <span *ngIf="gameForm.controls.title.invalid && 
+             (gameForm.controls.title.dirty || gameForm.controls.title.touched)">Please provide a title</span>
+       
+             </label>
+    </div>
+    <div>
+        <label>
+            Price: 
+            <input type="number" name = "price"  id="price" placeholder="Price" ngModel/>
+        </label>
+    </div>
+    <div>
+        <label>
+            MinPlayers: 
+            <input type="number" name = "minPlayers"  id="minPlayers" placeholder="MinPlayers" ngModel/>
+        </label>
+    </div>
+    <div>
+        <label>
+            MaxPlayers: 
+            <input type="number" name = "maxPlayers" placeholder="maxPlayers" ngModel/>
+        </label>
+    </div>
+    <div>
+        <label>
+            minAge: 
+            <input type="number" name = "minAge" placeholder="minAge" ngModel/>
+        </label>
+    </div>
+
+    <button type="submit" [disabled] = "gameForm.invalid" >Update</button>
+    <button type="button" (click)="onClear()">Clear</button>
+</form>
+
+

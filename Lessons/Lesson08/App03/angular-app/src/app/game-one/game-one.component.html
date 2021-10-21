@@ -9,3 +9,10 @@
 
     <a href="/games">BackToHome</a>
 </ul>
+
+Month: <select name="months" >
+   <option *ngFor = "let month of months"> {{month}}</option></select>
+<span *ngIf = "isAvailable; then condition1 else condition2"></span>
+
+<ng-template #condition1>Condition is valid</ng-template>
+<ng-template #condition2>Condition is invalid</ng-template>
