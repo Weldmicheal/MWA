@@ -15,6 +15,8 @@ export class GameOneComponent implements OnInit {
   gameForm!:NgForm;
   game!:Game  
 
+  
+
   updateFlag:boolean = false
 
   constructor(private gamesDataService: GamesDataService, private route:ActivatedRoute) { }

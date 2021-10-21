@@ -97,6 +97,7 @@ export class Game {
   minPlayers !: number
   maxPlayers !: number
   minAge !: number
+  
 
 }
 
