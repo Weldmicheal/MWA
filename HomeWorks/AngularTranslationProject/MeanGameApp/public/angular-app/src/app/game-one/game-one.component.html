@@ -5,9 +5,11 @@
     
          
         Price: {{game?.price}}<br>
-        MinPlayers: {{game?.minPlayers}}<br>
-        MaxPlayers: {{game?.maxPlayers}}<br>
-        minAge: {{game?.minAge}}
+        Minimum Players: {{game?.minPlayers}}<br>
+        Maximum Players: {{game?.maxPlayers}}<br>
+        Minimum Age: {{game?.minAge}}
+
+        
    
 
     <p>
@@ -39,25 +41,25 @@
     </div>
     <div>
         <label>
-            MinPlayers: 
+            Minimum Players: 
             <input type="number" name = "minPlayers"  id="minPlayers" placeholder="MinPlayers" ngModel/>
         </label>
     </div>
     <div>
         <label>
-            MaxPlayers: 
+            Maximum Players: 
             <input type="number" name = "maxPlayers" placeholder="maxPlayers" ngModel/>
         </label>
     </div>
     <div>
         <label>
-            minAge: 
+            Minimum Age: 
             <input type="number" name = "minAge" placeholder="minAge" ngModel/>
         </label>
     </div>
 
-    <button type="submit" [disabled] = "gameForm.invalid" >Update</button>
-    <button type="button" (click)="onClear()">Clear</button>
+    <button type="submit" [disabled] = "gameForm.invalid" class="btn-success" >Update</button>
+    <!-- <button type="button" (click)="onClear()">Clear</button> -->
 </form>
 
 

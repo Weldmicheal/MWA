@@ -64,11 +64,11 @@ To add a new game please fill in all the field below
         </div>
         <div>
             <label>
-                minAge: 
+                MinAge: 
                 <input type="number" name = "minAge" placeholder="minAge" ngModel/>
             </label>
         </div>
     
-        <button type="submit" [disabled] = "gameForm.invalid" >Add</button>
-        <button type="button" (click)="onClear()">Clear</button>
+        <button type="submit"  class="btn-success">Add Game</button>
+        <!-- <button type="button" (click)="onClear()">Clear</button> -->
     </form>

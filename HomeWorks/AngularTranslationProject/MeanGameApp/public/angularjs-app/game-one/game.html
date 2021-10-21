@@ -9,8 +9,6 @@
     Minimum Players: {{vm.game.minPlayers}} <br>
     Maximum Players: {{vm.game.maxPlayers}} <br>
     Minimum Age: {{vm.game.minAge}} <br>
-    Publisher : {{vm.game.publisher.name}}<br>
-
 
 <p>
 <p ng-if="!vm.status" style="color: red;">{{vm.message}}</p>
@@ -26,29 +24,29 @@
     To update the game please fill in all the field below <br>
 
 
-    Title : <input type="text" name="title"  ng-model="vm.gameTitle" style="color: black">
+    Title : <input type="text" name="title"  ng-model="vm.gameTitle" placeholder="Game Title" style="color: black">
     <span ng-show="vm.gameForm.title.$dirty && vm.gameForm.title.$invalid" style="color: red;"> title should be
         string</span><br>
 
-    Price : <input type="number" name="price" min="0"  ng-model="vm.gamePrice" style="color: black">
+    Price : <input type="number" name="price" min="0"  ng-model="vm.gamePrice" placeholder="Price" style="color: black">
     <span ng-show="vm.gameForm.price.$dirty && vm.gameForm.price.$invalid" style="color: red;"> price
         should be digits
     </span><br>
-    MinimumPlayers : <input type="number" name="minimumPlayers" min="0"  ng-model="vm.gameMinimumPlayers"
+    Minimum Players : <input type="number" name="minimumPlayers" min="0" placeholder="MinPlayers" ng-model="vm.gameMinimumPlayers"
         style="color: black">
     <span ng-show="vm.gameForm.minimumPlayers.$dirty && vm.gameForm.minimumPlayers.$invalid" style="color: red;">
         minimumPlayers
         should be digits
     </span><br>
 
-    MaximumPlayers : <input type="number" name="maximumPlayers" min="0"  ng-model="vm.gameMaximumPlayers"
+    Maximum Players : <input type="number" name="maximumPlayers" min="0" placeholder="MaxPlayers" ng-model="vm.gameMaximumPlayers"
         style="color: black">
     <span ng-show="vm.gameForm.maximumPlayers.$dirty && vm.gameForm.maximumPlayers.$invalid" style="color: red;">
         maximumPlayers
         should be digits
     </span><br>
 
-    MinimumAge : <input type="number" name="minimumAge" min="0"  ng-model="vm.gameMinimumAge"
+    Minimum Age : <input type="number" name="minimumAge" min="0" placeholder="MinAge" ng-model="vm.gameMinimumAge"
         style="color: black">
     <span ng-show="vm.gameForm.minimumAge.$dirty && vm.gameForm.minimumAge.$invalid" style="color: red;"> minimumAge
         should be digits
