@@ -1,0 +1,5 @@
+MEAN stack development adheres to the MVC architecture design in which MongoDB handles the data logic, Express controls the flow of data into the model object and dynamically updates the view when data changes, and Angular presents the data from the model to the user.
+
+Traditionally, education has been only focused on the known, but Maharishi founded Consciousness-Based education that involves three parts: the knower, known, and processes of knowing -- the student, object to being learned, and means that connects both the knower and known, respectively.
+
+As the separation of concern achieves testability, maintainability, reusability, and readability, the three aspects of education also provide greater clarity of perception, deepest insights, creative thinking, and inner happiness. 
