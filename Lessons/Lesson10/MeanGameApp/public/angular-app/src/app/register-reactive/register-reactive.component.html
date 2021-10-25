@@ -1,5 +1,5 @@
 <form [formGroup] = "registerationForm" 
-(ngSubmit)="onSubmit()">
+(ngSubmit)="onRegisterUser()">
     <div>
         <label>
             Name: 
@@ -13,16 +13,16 @@
             Username: 
             <input formControlName = "username" placeholder="Username"/>
         </label>
-    </div>
+    </div> 
     <div>
         <label>
-            Username: 
+            Password: 
             <input type="password" formControlName = "password" placeholder="Password"/>
         </label>
     </div>
     <div>
         <label>
-            Username: 
+            RepeatPassword: 
             <input type="password" formControlName = "passwordRepeat" placeholder="Password Repeat"/>
         </label>
     </div>

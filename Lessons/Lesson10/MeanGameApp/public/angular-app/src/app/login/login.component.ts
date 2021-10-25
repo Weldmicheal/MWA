@@ -27,12 +27,14 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
-    console.log("form.value", this.loginForm.value);
+    console.log("form.value", this.loginForm.value.username);
     let credentials: Credentials = new Credentials()
     credentials.username = this.loginForm.value.username
-    credentials.password = this.loginForm.value.username
+    credentials.password = this.loginForm.value.password
 
-    this._httpClient.post<any>("http://localhost:3000/api/users/login", Credentials).toPromise()
+    
+
+    this._httpClient.post<any>("http://localhost:3000/api/users/login", credentials).toPromise()
       .then(response => {
         console.log("response", response);
         localStorage.setItem("gamesToken", response.token)

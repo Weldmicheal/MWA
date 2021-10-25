@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UsersDataServiceService } from '../users-data-service.service';
 import { NgForm } from '@angular/forms';
+
 @Component({
   selector: 'app-register-template',
   templateUrl: './register-template.component.html',
   styleUrls: ['./register-template.component.css']
 })
+
 export class RegisterTemplateComponent implements OnInit {
 
   @ViewChild('registrationForm')

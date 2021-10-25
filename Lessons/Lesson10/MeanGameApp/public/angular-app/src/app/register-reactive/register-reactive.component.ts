@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 //import { FormControl, FormGroup } from '@angular/forms';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UsersDataServiceService } from '../users-data-service.service';
 
 @Component({
   selector: 'app-register-reactive',
@@ -10,8 +11,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterReactiveComponent implements OnInit {
 
+  //@ViewChild('registerationForm')
   registerationForm!: FormGroup
-  constructor(private _formBuilder: FormBuilder) { }
+  user!: User 
+
+  message!:string
+  err!:string
+  
+  constructor(private usersDataService: UsersDataServiceService, private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.registerationForm = this._formBuilder.group({
@@ -27,14 +34,38 @@ export class RegisterReactiveComponent implements OnInit {
     //   passwordRepeat: new FormControl("123")
     // })
   }
+ 
+  onRegisterUser(){
+    console.log("Values are ", this.registerationForm.value);
 
-  onSubmit(): void{
-    console.log("form Submitted");
-    console.log("from username", this.registerationForm.value.username);
-    console.log("form values", this.registerationForm.value);
-    
-    
+    //this.usersDataService.addUser(this.registerationForm.value).then(response => this.user = response)
+    console.log("User", this.user);
+
+    var user = {username: this.registerationForm.value.username, password:this.registerationForm.value.password }
+    console.log(user);
+    if(!this.registerationForm.value.username || !this.registerationForm.value.password){
+        this.err = "Please add a username and password"
+    }else{
+        if(this.registerationForm.value.password !== this.registerationForm.value.passwordRepeat){
+            this.err = "Please make sure the password matches"
+        }else{
+
+          this.usersDataService.addUser(this.registerationForm.value).then(response => {
+            this.user = response
+            this.message = "Successful registration"
+            this.err = ""
+          })            
+        }
+    }
     
   }
 
 }
+
+export class User {
+  name!: string
+  username!: string
+  password!: string
+  passwordRepeat!: string
+}
+

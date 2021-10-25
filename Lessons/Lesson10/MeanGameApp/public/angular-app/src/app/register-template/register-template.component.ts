@@ -29,7 +29,7 @@ export class RegisterTemplateComponent implements OnInit {
 
   onSubmit(){
   //onSubmit(){
-    console.log("submitter");
+    console.log("submitted");
     console.log("Values are ", this.registrationForm.value);
     console.log("User", this.user);
     
