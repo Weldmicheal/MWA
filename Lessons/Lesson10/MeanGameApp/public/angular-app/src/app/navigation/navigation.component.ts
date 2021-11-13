@@ -13,17 +13,17 @@ export class NavigationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onHome(): void{
-    this._router.navigate([""])
-  }
+  // onHome(): void{
+  //   this._router.navigate([""])
+  // }
 
-  onGames(): void{
-    this._router.navigate(["/games"])
-  }
-  onRegister(): void{
-    this._router.navigate(["/register"])
-  }
-  onParent(): void{
-    this._router.navigate(["/parent"])
-  }
+  // onGames(): void{
+  //   this._router.navigate(["/games"])
+  // }
+  // onRegister(): void{
+  //   this._router.navigate(["/register"])
+  // }
+  // onParent(): void{
+  //   this._router.navigate(["/parent"])
+  // }
 }

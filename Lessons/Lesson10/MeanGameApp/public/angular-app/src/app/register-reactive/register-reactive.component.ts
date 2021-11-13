@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-//import { FormControl, FormGroup } from '@angular/forms';
+import { Component, OnInit} from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsersDataServiceService } from '../users-data-service.service';
@@ -11,10 +10,8 @@ import { UsersDataServiceService } from '../users-data-service.service';
 })
 export class RegisterReactiveComponent implements OnInit {
 
-  //@ViewChild('registerationForm')
   registerationForm!: FormGroup
   user!: User 
-
   message!:string
   err!:string
   
@@ -27,18 +24,11 @@ export class RegisterReactiveComponent implements OnInit {
       password: ["123", Validators.required],
       passwordRepeat: ["123", Validators.required]
     })
-    // this.registerationForm= new FormGroup({
-    //   name: new FormControl("Jack"),
-    //   username: new FormControl("Jack2021"),
-    //   password: new FormControl("123"),
-    //   passwordRepeat: new FormControl("123")
-    // })
+   
   }
  
   onRegisterUser(){
     console.log("Values are ", this.registerationForm.value);
-
-    //this.usersDataService.addUser(this.registerationForm.value).then(response => this.user = response)
     console.log("User", this.user);
 
     var user = {username: this.registerationForm.value.username, password:this.registerationForm.value.password }
